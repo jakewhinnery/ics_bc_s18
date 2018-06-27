@@ -15,7 +15,7 @@ while jake == true
 end
 
 #method to romanize numbers using modulus and division to set each digit
-def oldRomanizer (basic)
+def newRomanizer (basic)
   thousand = basic/1000
   nineH = (basic % 1000)/900
   fiveH = (basic % 1000 % 900)/500
@@ -33,4 +33,4 @@ def oldRomanizer (basic)
 end
 
 #call the method
-oldRomanizer (number)
+newRomanizer (number)
