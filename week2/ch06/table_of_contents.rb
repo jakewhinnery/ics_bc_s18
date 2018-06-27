@@ -1,37 +1,26 @@
-#define and initialize variables
-lineLength = 20
-chNum = 1
-pgNum = ' 1'
-rightInit = 'page '
-afterChapter = ': '
+#declare lineLength
+lineLength = 42
 
-#set and print header
+#print header
 header = 'Table of Contents'
-puts (header.center(2*(lineLength + 1)))
+puts header.center(lineLength)
 
-#while loop to set variable values to change what is printed each line
-while chNum <= 3
-  if chNum == 1
-    right = rightInit + pgNum
-    center = 'Getting Started'
-  elsif chNum == 2
-    center = 'Numbers'
-    pgNum = ' 9'
-    right = rightInit + pgNum
-  elsif chNum == 3
-    center = 'Letters'
-    pgNum = '13'
-    right = rightInit + pgNum
-  end
-  left = 'Chapter ' + chNum.to_s + afterChapter + center
+#define ch1 with correct spacing and such
+left1 = 'Chapter 1: Getting Started'
+right1 = 'page  1'
+ch1 = left1.ljust(30) + right1.rjust(12)
 
-  #print the table of contents
-  if right == 'page  1'
-    puts (left + right.rjust(lineLength - 6))
-  else
-    puts (left + right.rjust(lineLength))
-  end
+#define ch2 with correct spacing
+left2 = 'Chapter 2: Numbers'
+right2 = 'page  9'
+ch2 = left2.ljust(30) + right2.rjust(10)
 
-  #increment
-  chNum = chNum + 1
-end
+#define ch3 with correct spacing
+left3 = 'Chapter 3: Letters'
+right3 = 'page 13'
+ch3 = left3.ljust(30) + right3.rjust(10)
+
+#print the chapters
+puts ch1
+puts ch2
+puts ch3
