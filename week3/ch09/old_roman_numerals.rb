@@ -18,11 +18,11 @@ end
 def oldRomanizer (basic)
   thousands = basic/1000
   fiveHundreds = (basic % 1000)/500
-  hundreds = (basic % 1000 % 500)/100
-  fifties = (basic % 1000 % 500 % 100)/50
-  tens = (basic % 1000 % 500 % 100 % 50)/10
-  fives = (basic % 1000 % 500 % 100 % 50 % 10)/5
-  ones = (basic % 1000 % 500 % 100 % 50 % 10) % 5
+  hundreds = (basic % 500)/100
+  fifties = (basic % 100)/50
+  tens = (basic % 50)/10
+  fives = (basic % 10)/5
+  ones = (basic % 5)
   puts ('M'*thousands + 'D'*fiveHundreds + 'C'*hundreds + 'L'*fifties + 'X'*tens +'V'*fives + 'I'*ones)
 end
 
