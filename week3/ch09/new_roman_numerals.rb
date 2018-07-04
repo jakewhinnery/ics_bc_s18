@@ -19,16 +19,19 @@ def newRomanizer (basic)
   thousand = basic/1000
   nineH = (basic % 1000)/900
   fiveH = (basic % 1000 % 900)/500
-  fourH = (basic % 1000 % 900 % 500)/400
-  hundred = (basic % 1000 % 900 % 500 % 400)/100
+  remainder = basic % 1000 % 900
+  fourH = (remainder % 500)/400
+  hundred = (remainder % 500 % 400)/100
   nineties = (basic % 100)/90
   fifties = (basic % 100 % 90)/50
-  fourties = (basic % 100 % 90 % 50)/40
-  tens = (basic % 100 % 90 % 50 % 40)/10
+  remainder = basic % 100 % 90
+  fourties = (remainder % 50)/40
+  tens = (remainder % 50 % 40)/10
   nines = (basic % 10)/9
   fives = (basic % 10 % 9)/5
-  fours = (basic % 10 % 9 % 5)/4
-  ones = basic % 10 % 9 % 5 % 4
+  remainder = basic % 10 % 9
+  fours = (remainder % 5)/4
+  ones = remainder % 5 % 4
   puts ('M'*thousand + 'CM'*nineH + 'D'*fiveH + 'CD'*fourH + 'C'*hundred + 'XC'*nineties + 'L'*fifties + 'XL'*fourties + 'X'*tens + 'IX'*nines + 'V'*fives + 'IV'*fours + 'I'*ones)
 end
 
