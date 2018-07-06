@@ -1,9 +1,11 @@
 def array_sum(array)
-  if ______________________
+  if array[1] == nil
     array[0]
   else
-    ______________________
+    array[1] = array[0] + array[1]
+    array.shift
+    array_sum(array)
   end
 end
 
-puts array_sum [__, __, ...] 
+puts array_sum [5, 3, 87, 16, 31, 5]

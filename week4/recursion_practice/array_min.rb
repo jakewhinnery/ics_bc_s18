@@ -1,9 +1,15 @@
 def array_min(array, len)
-  if ______________________
+  if len <= 1
     array[0]
   else
-    ______________________
+    if array[0] < array[len-1]
+      array.pop
+    else
+      array.shift
+    end
+    len = len - 1
+    array_min(array, len)
   end
 end
 
-puts array_min __, __ 
+puts array_min([15, 27, 81, 17, 5, 13, 4, 81], 8)

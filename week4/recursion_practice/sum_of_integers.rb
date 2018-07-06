@@ -1,9 +1,13 @@
 def sum_of_integers(n)
-  if ______________________
+  while n < 1
+    puts 'Please enter a postive integer.'
+    n = gets.chomp.to_i
+  end
+  if n == 1
     n
   else
-    ______________________
+    n + sum_of_integers(n - 1)
   end
 end
 
-puts sum_of_integers __
+puts sum_of_integers (gets.chomp.to_i)
