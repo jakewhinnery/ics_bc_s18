@@ -11,9 +11,9 @@ def recursive_dict_sort(unsorted_array, sorted_array)
     while i < unsorted_array.length
       if min.downcase > unsorted_array[i].downcase
         min = unsorted_array[i]
+      end
+      if true
         i += 1
-      else
-      i += 1
       end
     end
     sorted_array.push min
