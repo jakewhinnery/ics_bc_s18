@@ -12,9 +12,7 @@ def recursive_sort(unsorted_array, sorted_array)
       if min > unsorted_array[i]
         min = unsorted_array[i]
       end
-      if true
         i += 1
-      end
     end
     sorted_array.push min
     unsorted_array.delete(min)

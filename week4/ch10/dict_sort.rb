@@ -12,9 +12,7 @@ def recursive_dict_sort(unsorted_array, sorted_array)
       if min.downcase > unsorted_array[i].downcase
         min = unsorted_array[i]
       end
-      if true
         i += 1
-      end
     end
     sorted_array.push min
     unsorted_array.delete(min)
