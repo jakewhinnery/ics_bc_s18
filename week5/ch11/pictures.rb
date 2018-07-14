@@ -3,7 +3,7 @@
 ###
 ### An example for mac could be '/Users/username/Desktop/pic_dst'
 ### An example for PC could be 'C:/Users/username/Desktop/pic_dst'
-Dir.chdir '<destination>'
+Dir.chdir '/Users/jwhinnery/Desktop/PicsDest'
 
 # First we find all of the pictures to be moved.
 ### In the next line you want the source
@@ -12,7 +12,9 @@ Dir.chdir '<destination>'
 ###
 ### An example for mac could be '/Users/username/Desktop/pic_src/**/*.{JPG,jpg}'
 ### An example for PC could be 'C:/Users/username/Desktop/pic_src/**/*.{JPG,jpg}'
-pic_names = Dir['<source>']
+
+pic_names = Dir['/Users/jwhinnery/Desktop/PicsSour/**/*.{JPG,jpg}']
+dest_names = Dir['/Users/jwhinnery/Desktop/PicsDest/**/*.{JPG,jpg}']
 
 puts 'What would you like to call this batch?'
 batch_name = gets.chomp
@@ -27,6 +29,15 @@ pic_names.each do |name|
     "#{batch_name}0#{pic_number}.jpg"
   else
     "#{batch_name}#{pic_number}.jpg"
+  end
+
+  if File.exist?(new_name)
+    puts 'You\'re overwriting an image. Are you sure you want to
+          continue? Type \'yes\' to proceed and anything else to exit.'
+    response = gets.chomp.to_s
+    if response != 'yes'
+      exit
+    end
   end
 
   # Now where were we? Oh, yeah...
