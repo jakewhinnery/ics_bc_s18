@@ -3,9 +3,21 @@ birthdays = File.open('/Users/jwhinnery/ruby/ics_bc_s18/week5/ch12/birthday_help
 
 #split the file and fill a hash, setting up the key
 hash = {}
+monthHash = {"Jan"=> 1, "Feb"=> 2, "Mar"=> 3, "Apr"=> 4, "May"=> 5, "Jun"=> 6,
+             "Jul"=> 7, "Aug"=> 8, "Sep"=> 9, "Oct"=> 10, "Nov"=> 11, "Dec"=> 12}
+
+#split up each line in the file
 birthdays.each do |line|
   key, monthDay, year = line.chomp.split(", ")
-  hash[key.downcase] = monthDay + ', ' + year
+  month, day = monthDay.chomp.split(" ")
+  happenedYet = monthHash["Jan"]
+
+#make sure year is right
+  if happenedYet < 8
+    hash[key.downcase] = monthDay + ', 2019'
+  else
+    hash[key.downcase] = monthDay + ', 2018'
+  end
 end
 
 #prompts user for person
