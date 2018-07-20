@@ -19,6 +19,32 @@ class Dragon
     passage_of_time
   end
 
+  #gracefully exit the program amirite
+  def kill
+    puts "When #{@name} is turned the other way, you grab a rock and bash its skull in.
+    The dark blood drips down and pools on the ground below it. It isn't quite dead,
+    but rather fatally injured. It turns at you to look forlornly, a look of betrayal
+    plain on its face. Do you choose to \'nurture\' it back to help or \'smash\' again
+    with the rock?"
+    choice = gets.chomp
+    run = true
+    while run
+      if choice == 'nurture'
+        puts "You attempt to nurture #{@name} back to health but it never trusts you again
+        and kills you in your sleep shortly thereafter."
+        exit
+      elsif choice == 'kill' || choice == 'smash'
+        puts "You fly into a frenzy and desecrate the remains of #{@name}, bringing
+        dishonor to your family and placing a curse of bad luck on your posterity
+        for the next 10 generations."
+        exit
+      else
+        puts "nurture or smash?"
+        choice = gets.chomp
+      end
+    end
+  end
+
   def put_to_bed
     puts "You put #{@name} to bed."
     @asleep = true
@@ -103,3 +129,28 @@ class Dragon
 end
 
 # Make it interactive!
+puts("You found a baby dragon! What would you like to name it?")
+name = gets.chomp
+pet = Dragon.new name
+puts("You can do six things to your new baby dragon.
+You can feed, walk, toss, rock, and put to bed.
+Kill #{name} to end program.")
+
+while true
+  command = gets.chomp.downcase
+  if command == 'put to bed'
+    pet.put_to_bed
+  elsif command == 'walk'
+    pet.walk
+  elsif command == 'toss'
+    pet.toss
+  elsif command == 'feed'
+    pet.feed
+  elsif command == 'rock'
+    pet.rock
+  elsif command == 'kill'
+    pet.kill
+  else
+    puts "Please enter a valid command: feed, walk, toss, rock, put to bed, or kill."
+  end
+end
